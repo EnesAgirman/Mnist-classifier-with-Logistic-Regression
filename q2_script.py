@@ -16,7 +16,7 @@ def read_pixels(data_path):
     with gzip.open(data_path) as f:
         pixel_data = np.frombuffer(f.read(), 'B', offset=16).astype('float32')
     normalized_pixels = pixel_data / 255
-    
+    print(f"max: {np.max(normalized_pixels)}")
     data_size = normalized_pixels.shape[0]
     image_count = int(data_size / 784)
     
@@ -39,14 +39,15 @@ def read_dataset():
     return X_train, y_train, X_test, y_test
 
 
-# For Question 2.4
-# Code to visualize weights (use your own weight variable, adjust its shape by yourself)
-# plt.matshow(weight, cmap=plt.cm.gray, vmin=0.5*weight.min(), vmax=0.5*weight.max())
+if __name__ == "__main__":
+    # For Question 2.4
+    # Code to visualize weights (use your own weight variable, adjust its shape by yourself)
+    # plt.matshow(weight, cmap=plt.cm.gray, vmin=0.5*weight.min(), vmax=0.5*weight.max())
 
-x_train, y_train, x_test, y_test = read_dataset()
+    x_train, y_train, x_test, y_test = read_dataset()
 
-print(x_train.shape)
-print(y_train.shape)
-print(x_test.shape)
-print(y_test.shape)
+    print(x_train.shape)
+    print(y_train.shape)
+    print(x_test.shape)
+    print(y_test.shape)
 
