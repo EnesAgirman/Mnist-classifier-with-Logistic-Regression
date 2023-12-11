@@ -15,8 +15,7 @@ def one_hot_encoding(label_data):
 def read_pixels(data_path):
     with gzip.open(data_path) as f:
         pixel_data = np.frombuffer(f.read(), 'B', offset=16).astype('float32')
-    normalized_pixels = pixel_data / 255
-    print(f"max: {np.max(normalized_pixels)}")
+    normalized_pixels = pixel_data
     data_size = normalized_pixels.shape[0]
     image_count = int(data_size / 784)
     
